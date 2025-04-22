@@ -1,0 +1,39 @@
+{
+  "name": "qa-tech-test",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack -p 3000",
+    "build": "next build",
+    "start": "next start -p 3000",
+    "lint": "next lint",
+    "playwright": "playwright test --ui",
+    "test:api": "npx playwright test tests/API-tests",
+    "test:ui": "npx playwright test tests/UI-tests",
+    "test:non-functional": "npx playwright test tests/non-functional-tests",
+    "test:report": "npx playwright show-report"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/material": "^6.4.2",
+    "@mui/x-date-pickers": "^7.24.1",
+    "dayjs": "^1.11.13",
+    "next": "15.1.6",
+    "next-swagger-doc": "^0.4.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.10.1",
+    "@eslint/eslintrc": "^3",
+    "@playwright/test": "^1.50.1",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "15.1.6",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5"
+  }
+}

@@ -1,0 +1,63 @@
+Note for expected automated test failures:
+
+1.  faliure in e2e pack due to broken file uploads not considering keywords
+2.  one faliure in api pack where the get keyword endpoint can not handle missing keyword (unless thats expected)
+3.  All security checks fail for the application under test
+
+Bugs:
+
+1. Incorrect Swagger Documentation for POST Endpoint
+   The Swagger documentation for the POST /api/images endpoint is inaccurate. It does not properly describe the required request body fields, missing required attributes or constraints.
+
+2. Missing Implementation for 400 Status Code in GET Request
+   The GET /api/images endpoint does not return a 400 Bad Request response when an invalid keyword is provided. The API should validate input and return an appropriate error response.
+
+3. UI Fails to Send Keywords to API When Creating an Image
+   When a user creates an image through the UI, the keywords field is not sent to the API, leading to missing metadata in the stored images.
+
+4. Calendar Popups Lack Unique Identifiers
+   All calendar popups in the application lack unique identifiers, making automated testing and accessibility improvements difficult. Unique identifiers should be added to enhance testability and usability.
+
+5. Swagger Documentation Does Not Follow Official Guidelines
+   The API documentation does not adhere to official Swagger/OpenAPI guidelines, leading to inconsistencies and potential confusion for developers integrating with the API.
+
+6. Duplicate Image Uploads Allowed Without Validation
+   The application allows users to upload duplicate images without any validation or warnings. It is unclear if this is the expected behavior or an oversight.
+
+7. No Defined Behavior for Image Upload Failures
+   The system does not specify how the application should handle image upload failures. A clear failure-handling mechanism (e.g., retries, error messages) should be defined.
+
+8. Missing URL Validation in POST Requests
+   There is no validation for URLs provided in the POST /api/images request. If the API accepts image URLs, it should validate them to prevent broken or malicious links.
+
+9. No Defined File Name Size Limits
+   There are no restrictions on the size or length of filenames for uploaded images. This could lead to storage and display issues.
+
+10. No Limits on Keyword Length or Quantity
+    The API does not enforce any restrictions on the length or number of keywords assigned to an image, which may lead to performance or storage concerns.
+
+11. Missing Date Validation in API Requests
+    The application does not validate date fields where applicable, which may lead to inconsistencies or invalid data entries.
+
+12. No Rate Limiting Implemented for API
+    The API lacks rate limiting, making it susceptible to abuse through excessive requests, potentially degrading system performance.
+
+13. SQL Injection Risks Not Addressed
+    The API does not appear to have protections against SQL injection attacks, posing a security risk for database integrity and data privacy.
+
+14. New Fields Can Be Added to API Without Proper Handling
+    The API allows additional fields to be included in requests without validation, which could lead to unintended behavior or security vulnerabilities.
+
+15. No Protection Against Malicious Image Uploads
+    The system does not check uploaded images for malicious content. There should be validation and security measures (e.g., file type validation, virus scanning) to prevent security threats.
+
+16. Application Performance Degrades With More Than 30 Images
+    When more than 30 images are present, the application’s response time slows to over 3000ms, indicating a potential performance bottleneck. Optimization may be required for better scalability.
+
+17. The end date filter removes the images which are uploaded on the same date
+    This could be by design but cause confusion for the user
+
+18. The get keyword end point also matches with title
+    This could be by design
+
+19. The get keyword end point is designed to take only single keyword but swagger documentation syas it can take multiple keywords
