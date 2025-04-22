@@ -31,6 +31,8 @@ export async function drawArrow(
   await page.mouse.up();
 }
 
+// The snapping logic can be better and base don
+//  edges rather than center distance but this is just a trial and can be explored more
 export async function verifyArrowSnappedToTarget(
   page: Page,
   expectedEnd: { x: number; y: number }
@@ -39,14 +41,14 @@ export async function verifyArrowSnappedToTarget(
   const count = await arrows.count();
   expect(count).toBeGreaterThan(0);
 
-  // Get the transform position of the arrow (origin point)
+  // Get the origin point
   const arrowBox = await arrows.nth(0).boundingBox();
   if (!arrowBox) throw new Error("Arrow shape not found");
 
   const arrowEndX = arrowBox.x + arrowBox.width / 2;
   const arrowEndY = arrowBox.y + arrowBox.height / 2;
 
-  const threshold = 300; // pixels of leeway for matching
+  const threshold = 300; // pixels of leeway for matching as it will not snap to center
 
   const dx = Math.abs(arrowEndX - expectedEnd.x);
   const dy = Math.abs(arrowEndY - expectedEnd.y);

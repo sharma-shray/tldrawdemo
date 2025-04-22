@@ -7,6 +7,8 @@ import {
 
 test("create two rectangles and connect with an arrow", async ({ page }) => {
   await page.goto("https://www.tldraw.com/");
+  // baseurl not centralised as it is
+  // a part of another pack please refer to playwright config file for more details on that
 
   const canvas = page.locator('[data-testid="canvas"]');
   const canvasBox = await canvas.boundingBox();
