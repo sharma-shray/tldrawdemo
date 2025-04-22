@@ -11,6 +11,7 @@
     "test:api": "npx playwright test tests/API-tests",
     "test:ui": "npx playwright test tests/UI-tests",
     "test:vrt": "npx playwright test tests/VRT-tests",
+    "tldraw": "npx playwright test tests/tldraw",
     "test:non-functional": "npx playwright test tests/non-functional-tests",
     "test:report": "npx playwright show-report"
   },
