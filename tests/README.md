@@ -67,6 +67,19 @@ npm run test:api
 npm run test:ui
 ```
 
+🔹 Run tldraw Tests
+
+```bash
+npm run test:tldraw
+```
+
+🔹 Run VRT Tests
+
+```bash
+npm run test:vrt
+```
+
+Note for Kirsti: the tests for the demo application are failing because of bugs in the application, if you try to to run it.
 🔹🔹🔹🔹🔹 Run Non-Functional Tests🔹🔹🔹🔹🔹🔹 ( Careful, read below for details)
 
 ```bash
